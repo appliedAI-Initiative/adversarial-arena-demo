@@ -55,7 +55,7 @@ if __name__ == '__main__':
     st.title(' Summary of Perceptual Similarity metrics for adversarial attacks')
     st.header('1. Transferability of adversarial attacks on LPIPS metric')
     st.write("""Our hypothesis is that since LPIPS works on top of convolutional networks desinged for image
-    classification (i.e. VGG, ResNet, AlexNet), then adversarial samples crafted for those networks will fool LPIPS as 
+    classification (i.e. VGG, ResNet, AlexNet), then adversarial samples crafted for those networks will fool LPIPS as
     well. In theory LPIPS scores must be higher on adversarial samples than random perturnations
     (from the same distribution), as they are optimized to maximize other activations for incorrect classification.""")
 
@@ -63,7 +63,7 @@ if __name__ == '__main__':
     images, and also craft samples that shall be visually similar to the adversarial samples but still be classified
     with the same label as the original image (fake adversaries). Then, we will compare the distributions of the scores
     and if there is a significant difference in distributions, our hypothesis will be verified. """)
-    
+
     st.write(r"""As a set of source images we take the Imagenette dataset, which is a subsample of 10 classes from the
     Imagenet dataset. We craft the adversarial attacks using the untargeted Projected Gradient Descent method, with
     $\epsilon \in [0,1]$. To craft the fake adversaries we take a random perturbation used for crafting the adversarial samples and add to source images as:""")
@@ -75,12 +75,7 @@ if __name__ == '__main__':
     (\cdot)$ is a clipping function. For our experiments we craft 10 fake
     adversaries for each source image, by adding 10 different perturbations form
     adversarial samples. After getting the distributions we will need to conclude if LPIPS is sensitive to non-targeted
-    adversarial attacks. For that we define the $\delta$-sensitivity. """)
-
-    st.write(r"""_**Definition 1.** Let $\delta>0, x$ an image and $x^{\prime}$ the same image, perturbed by a change from a
-       family of adversarial attacks. We say that $d$ is $\delta-$ sensitive to this (non-targeted) attack if 
-       $\mathbb{E}\left[\left|d\left(x, x^{\prime}\right)-d(x, f)\right|\right]$.
-       Alternatively $: \mathbb{E}\left[\frac{\left|d\left(x, x^{\prime}\right)-d(x, f)\right|}{d\left(x, x^{\prime}\right)}\right]>\delta$_""")
+    adversarial attacks. """)
 
     st.write("""Results can be explored in the **Demo 1** section below.""")
 
